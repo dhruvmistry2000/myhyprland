@@ -11,6 +11,31 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+
+# Define the repository path and configuration file
+REPO_DIR="$HOME/Github/myhyprland"
+REPO_URL="https://github.com/dhruvmistry2000/myhyprland"
+
+# Check if the repository directory exists, create it if it doesn't
+if [ -d "$REPO_DIR" ]; then
+    printf "${YELLOW}Pulling mybash repository at: $REPO_DIR${RC}\n"
+    cd "$REPO_DIR"
+    git pull
+    if [ $? -eq 0 ]; then
+        printf "${GREEN}Successfully pulled mybash repository${RC}\n"
+    else
+        printf "${RED}Failed to pull mybash repository${RC}\n"
+    fi
+else
+    printf "${YELLOW}Cloning mybash repository into: $REPO_DIR${RC}\n"
+    git clone "$REPO_URL" "$REPO_DIR"
+    if [ $? -eq 0 ]; then
+        printf "${GREEN}Successfully cloned mybash repository${RC}\n"
+    else
+        printf "${RED}Failed to clone mybash repository${RC}\n"
+    fi
+fi
+
 # Function to print colored output
 print_status() {
     echo -e "${BLUE}[INFO]${NC} $1"
@@ -66,6 +91,9 @@ install_hyprland_dependencies() {
     print_status "Installing all Hyprland packages and dependencies..."
     yay -S --noconfirm \
         hyprland \
+        ntfs-3g \
+        nwg-displays \
+        ly \
         wayland \
         wayland-protocols \
         xorg-server-xwayland \
@@ -125,7 +153,15 @@ install_hyprland_dependencies() {
         hyprland-nvidia-git \
         waybar-hyprland-git \
         hyprland-autoname-workspaces \
-        hyprland-workspace-switcher
+        hyprland-workspace-switcher  \
+        bluez  \
+        bluez-utils  \
+        blueman  \
+        fzf \
+        materia-gtk-theme  \
+        nvtop
+
+
 }
 
 # Function to install a font if not already installed
