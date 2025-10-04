@@ -94,6 +94,12 @@ install_hyprland_dependencies() {
         ntfs-3g \
         nwg-displays \
         ly \
+        brave-bin \
+        google-chrome \
+        spotify \
+        flameshot \
+        code \
+        rofi \
         wayland \
         wayland-protocols \
         xorg-server-xwayland \
@@ -160,8 +166,6 @@ install_hyprland_dependencies() {
         fzf \
         materia-gtk-theme  \
         nvtop
-
-
 }
 
 # Function to install a font if not already installed
