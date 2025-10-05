@@ -3,14 +3,12 @@
 # Hyprland Setup Script for Arch Linux
 # This script installs all essential packages for a complete Hyprland experience
 
-
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
-
 
 # Define the repository path and configuration file
 REPO_DIR="$HOME/Github/myhyprland"
@@ -158,16 +156,14 @@ install_hyprland_dependencies() {
         ttf-nerd-fonts-symbols \
         noto-fonts \
         noto-fonts-emoji \
-        hyprland-nvidia-git \
-        waybar-hyprland-git \
-        hyprland-autoname-workspaces \
-        hyprland-workspace-switcher  \
         bluez  \
         bluez-utils  \
         blueman  \
         fzf \
         materia-gtk-theme  \
         nvtop
+    # The following packages have been removed as per instructions:
+    # eww-wayland, hyprland-nvidia-git, waybar-hyprland-git, hyprland-autoname-workspaces, hyprland-workspace-switcher
 }
 
 # Function to install a font if not already installed
