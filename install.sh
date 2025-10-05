@@ -94,8 +94,6 @@ install_hyprland_dependencies() {
         ntfs-3g \
         nwg-displays \
         ly \
-        brave-bin \
-        google-chrome \
         spotify \
         flameshot \
         code \
