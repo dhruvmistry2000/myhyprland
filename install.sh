@@ -18,21 +18,21 @@ REPO_URL="https://github.com/dhruvmistry2000/myhyprland"
 
 # Check if the repository directory exists, create it if it doesn't
 if [ -d "$REPO_DIR" ]; then
-    printf "${YELLOW}Pulling mybash repository at: $REPO_DIR${RC}\n"
+    printf "${YELLOW}Pulling myhyprland repository at: $REPO_DIR${RC}\n"
     cd "$REPO_DIR"
     git pull
     if [ $? -eq 0 ]; then
-        printf "${GREEN}Successfully pulled mybash repository${RC}\n"
+        printf "${GREEN}Successfully pulled myhyprland repository${RC}\n"
     else
-        printf "${RED}Failed to pull mybash repository${RC}\n"
+        printf "${RED}Failed to pull myhyprland repository${RC}\n"
     fi
 else
-    printf "${YELLOW}Cloning mybash repository into: $REPO_DIR${RC}\n"
+    printf "${YELLOW}Cloning myhyprland repository into: $REPO_DIR${RC}\n"
     git clone "$REPO_URL" "$REPO_DIR"
     if [ $? -eq 0 ]; then
-        printf "${GREEN}Successfully cloned mybash repository${RC}\n"
+        printf "${GREEN}Successfully cloned myhyprland repository${RC}\n"
     else
-        printf "${RED}Failed to clone mybash repository${RC}\n"
+        printf "${RED}Failed to clone myhyprland repository${RC}\n"
     fi
 fi
 
@@ -99,7 +99,7 @@ install_hyprland_dependencies() {
         spotify \
         flameshot \
         code \
-        rofi \
+        rohyprland
         obs-studio \
         pipewire \
         wireplumber \
