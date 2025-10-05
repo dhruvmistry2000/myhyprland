@@ -97,7 +97,7 @@ install_hyprland_dependencies() {
         spotify \
         flameshot \
         code \
-        rohyprland
+        rohyprland \
         obs-studio \
         pipewire \
         wireplumber \
@@ -193,10 +193,34 @@ install_font() {
 }
 
 # Function to create Hyprland config directory
-create_hyprland_config_dir() {
-    print_status "Copying configuration files to ~/.config..."
-    mkdir -p ~/.config
-    cp -r config/* ~/.config/
+moveConfigs() {
+    # Define the source and target directories for config files
+    CONFIG_SRC_DIR="$REPO_DIR/config"
+    CONFIG_DEST_DIR="$HOME/.config"
+
+    # Create the target directory if it doesn't exist
+    mkdir -p "$CONFIG_DEST_DIR"
+    if [ $? -eq 0 ]; then
+        printf "${GREEN}Successfully created target directory $CONFIG_DEST_DIR${RC}\n"
+    else
+        printf "${RED}Failed to create target directory $CONFIG_DEST_DIR${RC}\n"
+        exit 1
+    fi
+
+    # Copy all config files from the source directory to the target directory
+    for config in "$CONFIG_SRC_DIR"/*; do
+        # Check if it's a directory
+        if [ -d "$config" ]; then
+            # Copy the directory to the destination directory
+            cp -r "$config" "$CONFIG_DEST_DIR/"
+            if [ $? -eq 0 ]; then
+                printf "${GREEN}Copied config directory $(basename "$config") to $CONFIG_DEST_DIR${RC}\n"
+            else
+                printf "${RED}Failed to copy config directory $(basename "$config") to $CONFIG_DEST_DIR${RC}\n"
+                exit 1
+            fi
+        fi
+    done
 }
 
 # Function to setup mybash repository
@@ -232,7 +256,7 @@ install_yay
 install_hyprland_dependencies
 install_font
 setup_mybash_repo
-create_hyprland_config_dir
+moveConfigs
 
 print_success "Hyprland setup completed successfully!"
 print_status "You can now start Hyprland by running: Hyprland"
