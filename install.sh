@@ -152,7 +152,9 @@ install_hyprland_dependencies() {
         blueman  \
         fzf \
         materia-gtk-theme  \
-        nvtop
+        nvtop \
+        wget \
+        uzip
     # The following packages have been removed as per instructions:
     # eww-wayland, hyprland-nvidia-git, waybar-hyprland-git, hyprland-autoname-workspaces, hyprland-workspace-switcher
 }
