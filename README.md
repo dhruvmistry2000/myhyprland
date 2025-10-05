@@ -19,7 +19,7 @@ A comprehensive setup script that installs all essential packages and configurat
 ### One-liner Command
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/dhruvmistry2000/myhyprland/main/install-oneliner.sh | bash
+curl -sSL https://raw.githubusercontent.com/dhruvmistry2000/myhyprland/main/setup.sh | bash
 ```
 
 ### Manual Installation
@@ -29,15 +29,9 @@ curl -sSL https://raw.githubusercontent.com/dhruvmistry2000/myhyprland/main/inst
 git clone https://github.com/dhruvmistry2000/myhyprland.git
 cd myhyprland
 ```
-
-2. Make the script executable:
+2. Run the installation:
 ```bash
-chmod +x install.sh
-```
-
-3. Run the installation:
-```bash
-./install.sh
+bash setup.sh 
 ```
 
 ## What Gets Installed
