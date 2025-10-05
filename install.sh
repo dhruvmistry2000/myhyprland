@@ -105,14 +105,7 @@ install_hyprland_dependencies() {
         xorg-server-xwayland \
         xorg-xwayland \
         mesa \
-        vulkan-radeon \
-        vulkan-intel \
-        vulkan-mesa-layers \
-        lib32-vulkan-radeon \
-        lib32-vulkan-intel \
-        lib32-vulkan-mesa-layers \
         mesa-utils \
-        vulkan-tools \
         pipewire \
         pipewire-alsa \
         pipewire-pulse \
@@ -136,8 +129,6 @@ install_hyprland_dependencies() {
         dunst \
         libnotify \
         waybar \
-        eww-wayland \
-        lf \
         fzf \
         ripgrep \
         bat \
