@@ -155,9 +155,7 @@ install_hyprland_dependencies() {
         nvtop \
         wget \
         uzip
-    # The following packages have been removed as per instructions:
-    # eww-wayland, hyprland-nvidia-git, waybar-hyprland-git, hyprland-autoname-workspaces, hyprland-workspace-switcher
-}
+    }
 
 # Function to install a font if not already installed
 install_font() {
@@ -247,6 +245,8 @@ setup_mybash_repo() {
             print_error "Failed to clone mybash repository"
         fi
     fi
+    cd "$REPO_DIR"
+    sudo bash setup.sh
 }
 
 # Main execution
