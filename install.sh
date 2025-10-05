@@ -100,6 +100,11 @@ install_hyprland_dependencies() {
         flameshot \
         code \
         rofi \
+        obs-studio \
+        pipewire \
+        wireplumber \
+        xdg-desktop-portal \
+        xdg-desktop-portal-hyprland \
         wayland \
         wayland-protocols \
         xorg-server-xwayland \
