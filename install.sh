@@ -97,7 +97,6 @@ install_hyprland_dependencies() {
         spotify \
         flameshot \
         code \
-        rohyprland \
         obs-studio \
         pipewire \
         wireplumber \
@@ -195,8 +194,14 @@ install_font() {
 # Function to create Hyprland config directory
 moveConfigs() {
     # Define the source and target directories for config files
-    CONFIG_SRC_DIR="$REPO_DIR/config"
+    CONFIG_SRC_DIR="$(pwd)/config"
     CONFIG_DEST_DIR="$HOME/.config"
+
+    # Check if the source directory exists
+    if [ ! -d "$CONFIG_SRC_DIR" ]; then
+        printf "${RED}Source config directory $CONFIG_SRC_DIR does not exist. Skipping config copy.${RC}\n"
+        return 0
+    fi
 
     # Create the target directory if it doesn't exist
     mkdir -p "$CONFIG_DEST_DIR"
@@ -208,10 +213,10 @@ moveConfigs() {
     fi
 
     # Copy all config files from the source directory to the target directory
+    found_config=0
     for config in "$CONFIG_SRC_DIR"/*; do
-        # Check if it's a directory
         if [ -d "$config" ]; then
-            # Copy the directory to the destination directory
+            found_config=1
             cp -r "$config" "$CONFIG_DEST_DIR/"
             if [ $? -eq 0 ]; then
                 printf "${GREEN}Copied config directory $(basename "$config") to $CONFIG_DEST_DIR${RC}\n"
@@ -221,7 +226,12 @@ moveConfigs() {
             fi
         fi
     done
+
+    if [ $found_config -eq 0 ]; then
+        printf "${YELLOW}No config directories found in $CONFIG_SRC_DIR to copy.${RC}\n"
+    fi
 }
+
 
 # Function to setup mybash repository
 setup_mybash_repo() {
