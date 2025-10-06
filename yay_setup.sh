@@ -8,7 +8,7 @@ RC='\033[0m'  # Reset color
 
 # Define the directory name for yay
 YAY_DIR="yay"
-YAY_REPO="https://github.com/Jguer/yay"
+YAY_REPO="https://aur.archlinux.org/yay-bin.git"
 
 # Function to check if the distro is Arch-based
 is_arch_based() {
