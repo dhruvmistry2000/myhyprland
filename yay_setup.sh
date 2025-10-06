@@ -50,19 +50,24 @@ if is_arch_based; then
         echo -e "${YELLOW}Directory $YAY_DIR already exists. Skipping cloning.${RC}"
     else
         echo -e "${YELLOW}Cloning yay repository into $YAY_DIR...${RC}"
-        git clone $YAY_REPO $YAY_DIR
+        if ! git clone $YAY_REPO $YAY_DIR; then
+            echo -e "${RED}Failed to clone yay repository. Please check your internet connection and try again.${RC}"
+            exit 1
+        fi
     fi
 
     # Build and install yay
-    cd $YAY_DIR
-    echo -e "${YELLOW}Building and installing yay...${RC}"
-    makepkg -si --noconfirm
-
-    # Clean up
-    cd ..
-    rm -rf $YAY_DIR
-
-    echo -e "${GREEN}yay installation completed successfully!${RC}"
+    if [ -d "$YAY_DIR" ]; then
+        cd $YAY_DIR
+        echo -e "${YELLOW}Building and installing yay...${RC}"
+        makepkg -si --noconfirm
+        cd ..
+        rm -rf $YAY_DIR
+        echo -e "${GREEN}yay installation completed successfully!${RC}"
+    else
+        echo -e "${RED}yay directory does not exist. Cannot build yay.${RC}"
+        exit 1
+    fi
   fi
 else
   echo -e "${RED}This script is intended for Arch-based systems only. Exiting.${RC}"

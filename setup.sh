@@ -62,7 +62,7 @@ installDepend() {
     printf "${YELLOW}Installing dependencies...${RC}\n"
 
     # Ensure AUR helper exists
-    if ! command_exists yay && ! command_exists paru; then
+    if ! command_exists yay ; then
         printf "${YELLOW}Running yay_setup.sh to install yay as AUR helper...${RC}\n"
         bash "$GITPATH/yay_setup.sh"
         if [ $? -eq 0 ]; then
