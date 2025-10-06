@@ -186,6 +186,7 @@ moveConfigs() {
                 printf "${GREEN}Copied config directory $(basename "$config") to $CONFIG_DEST_DIR${RC}\n"
             else
                 printf "${RED}Failed to copy config directory $(basename "$config") to $CONFIG_DEST_DIR${RC}\n"
+                printf "${YELLOW}Tip: Check if you have write permissions for $CONFIG_DEST_DIR. You may need to change ownership or permissions using 'sudo chown -R $USER:$USER $CONFIG_DEST_DIR' or 'chmod'.${RC}\n"
                 exit 1
             fi
         fi
