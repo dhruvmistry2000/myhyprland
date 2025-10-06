@@ -181,7 +181,7 @@ moveConfigs() {
 
     for config in "$CONFIG_SRC_DIR"/*; do
         if [ -d "$config" ]; then
-            cp -r "$config" "$CONFIG_DEST_DIR/"
+            sudo cp -r "$config" "$CONFIG_DEST_DIR/"
             if [ $? -eq 0 ]; then
                 printf "${GREEN}Copied config directory $(basename "$config") to $CONFIG_DEST_DIR${RC}\n"
             else
