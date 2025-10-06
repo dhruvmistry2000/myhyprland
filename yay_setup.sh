@@ -60,7 +60,7 @@ if is_arch_based; then
     if [ -d "$YAY_DIR" ]; then
         cd $YAY_DIR
         echo -e "${YELLOW}Building and installing yay...${RC}"
-        makepkg -si --noconfirm
+        makepkg -si
         cd ..
         rm -rf $YAY_DIR
         echo -e "${GREEN}yay installation completed successfully!${RC}"
