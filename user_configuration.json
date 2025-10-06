@@ -29,7 +29,7 @@
         "wget"
     ],
     "parallel_downloads": 5,
-    "script": "curl -sSL https://raw.githubusercontent.com/dhruvmistry2000/mybash/master/setup.sh | bash",
+    "script": "/root/myhyprland/setup.sh",
     "services": [],
     "swap": true,
     "timezone": "Asia/Kolkata",
