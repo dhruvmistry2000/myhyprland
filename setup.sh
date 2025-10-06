@@ -121,6 +121,7 @@ installDepend() {
 
 installFont() {
     FONT_NAME="Hack"
+    ${AUR_HELPER} --noconfirm -Sy unzip
     if fc-list :family | grep -iq "$FONT_NAME"; then
         printf "${GREEN}Font '$FONT_NAME' is installed.${RC}\n"
     else
