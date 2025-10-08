@@ -39,11 +39,11 @@ if is_arch_based; then
     
     # Update system
     echo "Updating system..."
-    sudo pacman -Syu --noconfirm --needed
+    sudo pacman -Syu --noconfirm
 
     # Install required packages
     echo "Installing base-devel and git..."
-    sudo pacman -S --noconfirm --needed base-devel git
+    sudo pacman -S --noconfirm base-devel git
 
     # Clone yay repository into the current directory
     if [ -d "$YAY_DIR" ]; then
@@ -56,11 +56,11 @@ if is_arch_based; then
         fi
     fi
 
-    # Build and install yay non-interactively
+    # Build and install yay
     if [ -d "$YAY_DIR" ]; then
         cd $YAY_DIR
         echo -e "${YELLOW}Building and installing yay...${RC}"
-        makepkg -si --noconfirm --needed
+        makepkg -si
         cd ..
         rm -rf $YAY_DIR
         echo -e "${GREEN}yay installation completed successfully!${RC}"
@@ -71,5 +71,4 @@ if is_arch_based; then
   fi
 else
   echo -e "${RED}This script is intended for Arch-based systems only. Exiting.${RC}"
-  exit 1
 fi
