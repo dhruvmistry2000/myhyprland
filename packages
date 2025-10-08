@@ -64,6 +64,7 @@ bluez
 bluez-utils
 blueman
 fzf
+rofi
 materia-gtk-theme
 nvtop
 wget
