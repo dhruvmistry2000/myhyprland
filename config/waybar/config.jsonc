@@ -1,11 +1,11 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 26,
+  "height": 36,
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "memory", "cpu", "battery", "custom/powermenu"],
+  "modules-right": ["tray", "network","pulseaudio", "memory", "cpu", "battery"],
 
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -43,7 +43,8 @@
   "pulseaudio": {
     "format": " {volume}%",
     "format-muted": "󰝟 muted",
-    "scroll-step": 5
+    "scroll-step": 5,
+    "on-click" : "pavucontrol"
   },
 
   "memory": {
@@ -65,5 +66,18 @@
     "format-plugged": " {capacity}%",
     "format-alt": "Battery {capacity}%",
     "format-icons": ["", "", "", "", ""]
+  },
+ "network": {
+    "format-icons": [" 󰤯 ", " 󰤟 ", " 󰤢 ", " 󰤥 ", " 󰤨 "],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": " 󰀂 ",
+    "format-disconnected": " 󰤮 ",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "ronema"
   }
 }

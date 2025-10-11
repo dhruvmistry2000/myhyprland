@@ -32,8 +32,7 @@ window#waybar {
 #memory,
 #cpu,
 #battery,
-#clock,
-#custom-powermenu {
+#clock{
   padding: 0 8px;
   color: #a9d1ff;
 }
@@ -45,3 +44,21 @@ window#waybar {
 #pulseaudio {
   color: #4a86e8;
 }
+
+
+#network-wifi {
+  background-color: #88C0D0; /* Nord8 - cyan */
+  color: #ECEFF4; /* Nord6 - light text */
+  padding: 0 10px;
+  border-radius: 6px;
+  margin: 0 5px;
+}
+
+#network-ethernet {
+  background-color: #81A1C1; /* Nord9 - light blue */
+  color: #ECEFF4;
+  padding: 0 10px;
+  border-radius: 6px;
+  margin: 0 5px;
+}
+
